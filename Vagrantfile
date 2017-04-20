@@ -5,8 +5,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 3000, host: 13000, id: "rails",
     host_ip: "localhost", auto_correct: true
+
   config.vm.network :forwarded_port, guest: 1080, host: 11080,
-    id: "action-mailer", auto_correct: true
+    id: "action-mailer", host_ip: "localhost", auto_correct: true
 
   config.ssh.forward_agent = true
 
