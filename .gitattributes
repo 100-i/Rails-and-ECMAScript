@@ -1,0 +1,3 @@
+*.rb text eol=lf
+*.js text eol=lf
+*.es text eol=lf
