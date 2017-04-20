@@ -5,6 +5,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 3000, host: 13000, id: "rails",
     host_ip: "localhost", auto_correct: true
+  config.vm.network :forwarded_port, guest: 1080, host: 11080,
+    id: "action-mailer", auto_correct: true
 
   config.ssh.forward_agent = true
 
@@ -25,7 +27,6 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
-  #config.vm.network :forwarded_port, guest: 1080, host: 2080
 
   nsf_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
   config.vm.synced_folder ".", "/vagrant", id: "vagrant-root"
